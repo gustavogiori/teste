@@ -1,0 +1,9 @@
+c:\users\gustavo\documents\visual studio 2017\Projects\WebApplication9\WebApplication9\bin\Debug\netcoreapp1.1\WebApplication9.deps.json
+c:\users\gustavo\documents\visual studio 2017\Projects\WebApplication9\WebApplication9\bin\Debug\netcoreapp1.1\WebApplication9.runtimeconfig.json
+c:\users\gustavo\documents\visual studio 2017\Projects\WebApplication9\WebApplication9\bin\Debug\netcoreapp1.1\WebApplication9.runtimeconfig.dev.json
+c:\users\gustavo\documents\visual studio 2017\Projects\WebApplication9\WebApplication9\bin\Debug\netcoreapp1.1\WebApplication9.dll
+c:\users\gustavo\documents\visual studio 2017\Projects\WebApplication9\WebApplication9\bin\Debug\netcoreapp1.1\WebApplication9.pdb
+c:\users\gustavo\documents\visual studio 2017\Projects\WebApplication9\WebApplication9\obj\Debug\netcoreapp1.1\WebApplication9.csprojResolveAssemblyReference.cache
+c:\users\gustavo\documents\visual studio 2017\Projects\WebApplication9\WebApplication9\obj\Debug\netcoreapp1.1\WebApplication9.AssemblyInfo.cs
+c:\users\gustavo\documents\visual studio 2017\Projects\WebApplication9\WebApplication9\obj\Debug\netcoreapp1.1\WebApplication9.dll
+c:\users\gustavo\documents\visual studio 2017\Projects\WebApplication9\WebApplication9\obj\Debug\netcoreapp1.1\WebApplication9.pdb

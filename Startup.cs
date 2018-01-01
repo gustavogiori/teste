@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace WebAngularRAC
+namespace WebApplication9
 {
     public class Startup
     {
@@ -47,7 +47,6 @@ namespace WebAngularRAC
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -56,8 +55,6 @@ namespace WebAngularRAC
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-           
         }
     }
 }

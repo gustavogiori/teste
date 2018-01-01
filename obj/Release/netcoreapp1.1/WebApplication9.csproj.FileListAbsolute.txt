@@ -1,9 +1,0 @@
-C:\Users\Gustavo\fodas\bin\Release\netcoreapp1.1\WebApplication9.deps.json
-C:\Users\Gustavo\fodas\bin\Release\netcoreapp1.1\WebApplication9.runtimeconfig.json
-C:\Users\Gustavo\fodas\bin\Release\netcoreapp1.1\WebApplication9.runtimeconfig.dev.json
-C:\Users\Gustavo\fodas\bin\Release\netcoreapp1.1\WebApplication9.dll
-C:\Users\Gustavo\fodas\bin\Release\netcoreapp1.1\WebApplication9.pdb
-C:\Users\Gustavo\fodas\obj\Release\netcoreapp1.1\WebApplication9.csprojResolveAssemblyReference.cache
-C:\Users\Gustavo\fodas\obj\Release\netcoreapp1.1\WebApplication9.AssemblyInfo.cs
-C:\Users\Gustavo\fodas\obj\Release\netcoreapp1.1\WebApplication9.dll
-C:\Users\Gustavo\fodas\obj\Release\netcoreapp1.1\WebApplication9.pdb

@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    double total = 0;
+    decimal total = 0;
 }
 
 
@@ -111,7 +111,7 @@
 
 
 
-        <tr class=@(total > 0 ? "sucess" : "danger")><td><strong>TOTAL</strong></td><td><span class=@(total > 0 ? "tag_green" : "tag_red")><strong>@(total > 0 ? "+" : "-") @String.Format("{0:n}", @total)</strong></span></td></tr>
+        <tr class=@(total > 0 ? "sucess" : "danger")><td><strong>TOTAL</strong></td><td><span class=@(total > 0 ? "tag_green" : "tag_red")><strong>@(total > 0 ? "+" : "-") @String.Format("{0:n}", @total.ToString().Replace("-",""))</strong></span></td></tr>
     </tbody>
 
 </table>

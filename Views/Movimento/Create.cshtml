@@ -43,7 +43,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Valor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Valor, new { @class = "form-control", @placeholder = "somente números" })
                 @Html.ValidationMessageFor(model => model.Valor, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -91,6 +91,7 @@
                 data: "id=" + selectedCountry,
                 dataType: 'json',
                 success: function (retorno, status) {
+
                     $('#CategoriaID Option:Selected').text(teste2);
                 },
                 error: function (retorno, erro) {

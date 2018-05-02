@@ -1,118 +1,103 @@
 ﻿@model IEnumerable<Controle_Financeiro.Models.Movimento>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    decimal total = 0;
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	decimal total = 0;
+	DateTime primeiroDia = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
 }
 
 
-<h3 class="page_header">Compras</h3>
-@using (Html.BeginForm("Index", "Compras", FormMethod.Get))
+<h3 class="page_header">Movimentações</h3>
+@using (Html.BeginForm("Index", "Movimento", FormMethod.Get))
 {
-    <p>
-        <div class="col-md-6 text-left" style="padding-top:21px; padding-left:0px">
-            @Html.TextBox("SearchString")
-            <input type="submit" value="Filtrar" />
-        </div>
+	<div class="row">
+		<div class="col-md-2 text-left">
+			@Html.TextBox("dtInicio", primeiroDia, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+		</div>
+		<div class="col-md-1 text-left">
+			<center> <h4>Até</h4></center>
+		</div>
+		<div class="col-md-2 text-left">
+			@Html.TextBox("dtFim", primeiroDia.AddMonths(1).AddDays(-1), "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+		</div>
 
-        <div class="col-md-6 text-right">
-            <ul class="pagination">
-                @if (ViewBag.page != 1)
-                {
-                    <li>
-                        @Html.ActionLink("«", "Index", new { sortOrder = ViewBag.SortParm, page = ViewBag.page - 1, SearchString = ViewBag.CurrentFilter })
-                    </li>
-                }
+		<div class="col-md-2 text-left">
+			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>   Filtrar          </button>
+		</div>
 
-                @for (var i = 1; i <= ViewBag.num_pages; i++)
-                {
+	</div>
+}
 
-                    <li @{if (ViewBag.page == i) { <text> class="active" </text>        }}>
-                        @Html.ActionLink(i.ToString(), "Index", new { sortOrder = ViewBag.SortParm, page = i, SearchString = ViewBag.CurrentFilter })
-                    </li>
-    }
-                @if (ViewBag.page != ViewBag.num_pages)
-                {
-                    <li>
-                        @Html.ActionLink("»", "Index", new { sortOrder = ViewBag.SortParm, page = ViewBag.page + 1, SearchString = ViewBag.CurrentFilter })
-                    </li>
-                }
-            </ul>
-        </div>
-    </p>
-    }
-<p>
-    <!-- @Html.ActionLink("Adicionar", "Create") -->
-    <button type="button" class="btn btn-success" onclick="location.href = 'Movimento/Create';"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar</button>
-</p>
+<div id="adicionar">
+	<!-- @Html.ActionLink("Adicionar", "Create") -->
+	<button type="button" class="btn btn-success" onclick="location.href = 'Movimento/Create';"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar</button>
+</div>
 <table class="table table-striped">
-    <tr>
-        <th>
-            @Html.ActionLink("Categoria", "Index", new { sortOrder = ViewBag.CategoriaSortParm, SearchString = ViewBag.CurrentFilter, page = ViewBag.page })
-        </th>
-        <th>
-            @Html.ActionLink("SubCategoria", "Index", new { sortOrder = ViewBag.EstabelicimentoSortParm, SearchString = ViewBag.CurrentFilter, page = ViewBag.page })
-        </th>
-        <th>
-            @Html.ActionLink("Data", "Index", new { sortOrder = ViewBag.DateSortParm, SearchString = ViewBag.CurrentFilter, page = ViewBag.page })
-        </th>
-        <th>
-            @Html.ActionLink("Descrição", "Index", new { sortOrder = ViewBag.ValorSortParm, SearchString = ViewBag.CurrentFilter, page = ViewBag.page })
-        </th>
-        <th>
-            @Html.ActionLink("Valor", "Index", new { sortOrder = ViewBag.ValorSortParm, SearchString = ViewBag.CurrentFilter, page = ViewBag.page })
-        </th>
-        <th></th>
-    </tr>
-    @{total = 0;}
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubCategoria.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data, "{0:dd/MM/yyyy}")
-            </td>
+	<tr>
+		<th>
+			@Html.ActionLink("Categoria", "Index", new { sortOrder = ViewBag.CategoriaSortParm, SearchString = ViewBag.CurrentFilter, page = ViewBag.page })
+		</th>
+		<th>
+			@Html.ActionLink("SubCategoria", "Index", new { sortOrder = ViewBag.EstabelicimentoSortParm, SearchString = ViewBag.CurrentFilter, page = ViewBag.page })
+		</th>
+		<th>
+			@Html.ActionLink("Data", "Index", new { sortOrder = ViewBag.DateSortParm, SearchString = ViewBag.CurrentFilter, page = ViewBag.page })
+		</th>
+		<th>
+			@Html.ActionLink("Descrição", "Index", new { sortOrder = ViewBag.ValorSortParm, SearchString = ViewBag.CurrentFilter, page = ViewBag.page })
+		</th>
+		<th>
+			@Html.ActionLink("Valor", "Index", new { sortOrder = ViewBag.ValorSortParm, SearchString = ViewBag.CurrentFilter, page = ViewBag.page })
+		</th>
+		<th></th>
+	</tr>
+	@{total = 0;}
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Categoria.Nome)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.SubCategoria.Nome)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Data, "{0:dd/MM/yyyy}")
+			</td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao, "{0:dd/MM/yyyy}")
-            </td>
-            <td style="color:@(item.SubCategoria.Tipo.Sigla == "P" ? "green" : "red")">
+			<td>
+				@Html.DisplayFor(modelItem => item.Descricao, "{0:dd/MM/yyyy}")
+			</td>
+			<td style="color:@(item.SubCategoria.Tipo.Sigla == "P" ? "green" : "red")">
+				@Html.DisplayFor(modelItem => item.Valor)
+			</td>
+			<td>
+				@Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-eye-open cinza" }) |
+				@Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-pencil cinza" }) |
+				@Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-trash cinza" })
+			</td>
+		</tr>
 
-                @(item.SubCategoria.Tipo.Sigla == "P" ? "+" : "-")
-                @Html.DisplayFor(modelItem => item.Valor)
-            </td>
-            <td>
-                @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-eye-open cinza" }) |
-                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-pencil cinza" }) |
-                @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-trash cinza" })
-            </td>
-        </tr>
-
-    }
-    <tbody>
-        @{total = 0;}
-        @foreach (var compra in Model)
-        {
-            if (compra.SubCategoria.Tipo.Sigla == "P")
-            {
-                total += compra.Valor;
-            }
-            else
-            {
-                total -= compra.Valor;
-            }
-        }
+	}
+	<tbody>
+		@{total = 0;}
+		@foreach (var compra in Model)
+		{
+			if (compra.SubCategoria.Tipo.Sigla == "P")
+			{
+				total += compra.Valor;
+			}
+			else
+			{
+				total -= compra.Valor;
+			}
+		}
 
 
 
-        <tr class=@(total > 0 ? "sucess" : "danger")><td><strong>TOTAL</strong></td><td><span class=@(total > 0 ? "tag_green" : "tag_red")><strong>@(total > 0 ? "+" : "-") @String.Format("{0:n}", @total.ToString().Replace("-",""))</strong></span></td></tr>
-    </tbody>
+		<tr class=@(total > 0 ? "sucess" : "danger")><td><strong>TOTAL</strong></td><td><span class=@(total > 0 ? "tag_green" : "tag_red")><strong> @String.Format("{0:n}", @total.ToString().Replace("-", ""))</strong></span></td></tr>
+	</tbody>
 
 </table>
 

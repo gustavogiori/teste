@@ -56,3 +56,8 @@ a:hover {
     color: white;
     padding: 2px;
 }
+
+#adicionar {
+	padding-top:10px;
+	padding-bottom:5px;
+}

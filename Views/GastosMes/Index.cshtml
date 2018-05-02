@@ -37,7 +37,7 @@
                 {
                     <tr>
                 <td>@meses[compra.Mes - 1]</td>
-                <td style="color:@(compra.Tipo== "P" ? "green" : "red")">@(compra.Tipo == "P" ? "+" : "-") @String.Format("{0:n}", @compra.Valor)</td></tr>
+                <td style="color:@(compra.Tipo== "P" ? "green" : "red")"> @String.Format("{0:n}", @compra.Valor)</td></tr>
 
                     if (compra.Tipo == "P")
                     {
@@ -48,7 +48,7 @@
                         total -= compra.Valor;
                     }
                 }
-                <tr class=@(total > 0 ? "sucess" : "danger")><td><strong>TOTAL</strong></td><td><span class=@(total > 0 ? "tag_green" : "tag_red")><strong>@(total > 0 ? "+" : "-") @String.Format("{0:n}", @total)</strong></span></td></tr>
+                <tr class=@(total > 0 ? "sucess" : "danger")><td><strong>TOTAL</strong></td><td><span class=@(total > 0 ? "tag_green" : "tag_red")><strong> @String.Format("{0:n}", @total)</strong></span></td></tr>
             </tbody>
         </table>
     </div>
